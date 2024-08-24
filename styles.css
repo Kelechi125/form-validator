@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+:root {
+    --success-color: rgb(21, 205, 21);
+    --error-color: rgb(242, 29, 29);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(240, 124, 250);
+    font-family: 'PT Sans', Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgb(150, 0, 200);
+    border-radius: 10px;
+    box-shadow: 7px 7px 15px black;
+    width: 400px;
+}
+
+h2 {
+    text-align: center;
+    margin: 0 0 20px;
+}
+
+form {
+    padding: 30px 40px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    position: relative;
+}
+
+.form-control label {
+    color: aliceblue;
+    display: block;
+    margin-bottom: 7px;
+}
+
+.form-control input {
+    border: 2px solid hotpink;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 15px;
+}
+
+.form-control input:focus {
+    outline: 0;
+    border-color: rgb(35, 171, 240)
+}
+
+.form-control.success input {
+    border-color: var(--success-color);
+}
+
+.form-control.error input {
+    border-color: var(--error-color);
+}
+
+.form-control small {
+    color: var(--error-color);
+}
