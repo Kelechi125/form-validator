@@ -19,6 +19,12 @@ const showSuccess = (input) => {
     formControl.className = "form-control success";
 }
 
+// Create email is valid
+const isValidEmail = email => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+}
+
 // Event Listeners
 form.addEventListener("submit", (event) => {
     event.preventDefault();
@@ -31,6 +37,8 @@ form.addEventListener("submit", (event) => {
 
     if (email.value === "") {
         showError(email, "Where is your email address!?");
+    } else if (!isValidEmail(email.value)) {
+        showError(email, "This email address is not valid. Try again.")
     } else {
         showSuccess(email);
     }
