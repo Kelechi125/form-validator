@@ -25,33 +25,19 @@ const isValidEmail = email => {
     return emailRegex.test(email);
 }
 
+const checkRequired = inputArray => {
+    inputArray.forEach(input => {
+        if (input.value.trim() === "") {
+            showError(input, "Is required.")
+        } else {
+            showSuccess(input);
+        }
+    });
+}
+
 // Event Listeners
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    if (username.value === "") {
-        showError(username, "Username is required!");
-    } else {
-        showSuccess(username);
-    }
-
-    if (email.value === "") {
-        showError(email, "Where is your email address!?");
-    } else if (!isValidEmail(email.value)) {
-        showError(email, "This email address is not valid. Try again.")
-    } else {
-        showSuccess(email);
-    }
-
-    if (password.value === "") {
-        showError(password, "Please enter a password right now!");
-    } else {
-        showSuccess(password);
-    }
-
-    if (password2.value === "") {
-        showError(password2, "Password needs to match!");
-    } else {
-        showSuccess(password2);
-    }
+    checkRequired([username, email, password, password2])
 })
