@@ -20,9 +20,14 @@ const showSuccess = (input) => {
 }
 
 // Create email is valid
-const isValidEmail = email => {
+const checkEmail = input => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+    
+    if (emailRegex.test(input.value.trim())) {
+        showSuccess(input);
+    } else {
+        showError(input, "Email is not valid!");
+    }
 }
 
 // Check required fields
@@ -38,10 +43,10 @@ const checkRequired = inputArray => {
 
 // Check input length
 const checkLength = (input, minLength, maxLength) => {
-    if (input.value < minLength) {
-        showError(input, `${getFieldName(input)} must be at least ${minLength} characters!`)
-    } else if (input.value > maxLength) {
-        showError(input, `${getFieldName(input)} must be less than ${maxLength} characters!`)
+    if (input.value.length < minLength) {
+        showError(input, `${getFieldName(input)} must be at least ${minLength} characters!`);
+    } else if (input.value.length > maxLength) {
+        showError(input, `${getFieldName(input)} must be less than ${maxLength} characters!`);
     } else {
         showSuccess(input);
     }
@@ -59,4 +64,5 @@ form.addEventListener("submit", (event) => {
     checkRequired([username, email, password, password2])
     checkLength(username, 7, 26);
     checkLength(password, 5, 21);
+    checkEmail(email);
 })
