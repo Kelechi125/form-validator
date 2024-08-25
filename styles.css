@@ -71,4 +71,25 @@ form {
 
 .form-control small {
     color: var(--error-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
+}
+
+.form-control.error small {
+    visibility: visible;
+}
+
+.form button {
+    cursor: pointer;
+    background-color: maroon;
+    border: 2px solid maroon;
+    border-radius: 4px;
+    color: aliceblue;
+    display: block;
+    padding: 5px 10px;
+    font-size: 17px;
+    margin-top: 15px;
+    width: 100%;
 }
