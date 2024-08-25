@@ -28,4 +28,22 @@ form.addEventListener("submit", (event) => {
     } else {
         showSuccess(username);
     }
+
+    if (email.value === "") {
+        showError(email, "Where is your email address!?");
+    } else {
+        showSuccess(email);
+    }
+
+    if (password.value === "") {
+        showError(password, "Please enter a password right now!");
+    } else {
+        showSuccess(password);
+    }
+
+    if (password2.value === "") {
+        showError(password2, "Password needs to match!");
+    } else {
+        showSuccess(password2);
+    }
 })
